@@ -281,7 +281,7 @@ suite.define(() => {
       );
       expect(
         frames.every(
-          (frame) =>
+          (frame: DashboardPaintFrame) =>
             frame.title === title &&
             !frame.welcome &&
             frame.board &&
