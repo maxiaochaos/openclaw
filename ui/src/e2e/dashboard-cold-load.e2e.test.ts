@@ -254,9 +254,7 @@ suite.define(() => {
         expect(chatSkeletons).toBe(0);
       }
       expect(await page.locator(".agent-chat__welcome").count()).toBe(0);
-      const frames = (await page.evaluate(() =>
-        Reflect.get(window, "dashboardPaints"),
-      )) as DashboardPaintFrame[];
+      const frames = await page.evaluate(() => Reflect.get(window, "dashboardPaints"));
       console.log("Dashboard reload first painted frame", JSON.stringify(frames[0]));
       expect(frames.length).toBeGreaterThan(0);
       expect(frames).toEqual(
